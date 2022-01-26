@@ -1,0 +1,1 @@
+[![wakatime](https://wakatime.com/badge/user/4e561f6a-44a1-492f-8b79-1a4300a4f5e6/project/602b1f15-37b0-4608-9873-4e4394077fb2.svg)](https://wakatime.com/badge/user/4e561f6a-44a1-492f-8b79-1a4300a4f5e6/project/602b1f15-37b0-4608-9873-4e4394077fb2)
