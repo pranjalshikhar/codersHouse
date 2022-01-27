@@ -13,18 +13,18 @@ function App() {
     <BrowserRouter>
       <Navigation />
       <Switch>
-        <GuestRoute path='/' exact>
+        <PublicRoute path='/' exact>
           <Home />
-        </GuestRoute>
-        <GuestRoute path='/authenticate'>
+        </PublicRoute>
+        <PublicRoute path='/authenticate'>
           <Authenticate />
-        </GuestRoute>
+        </PublicRoute>
       </Switch>   
     </BrowserRouter>
   );
 }
 
-const GuestRoute = ({ children, ...rest}) => {
+const PublicRoute = ({ children, ...rest}) => {
   return (
     <Route {...rest}
     render={({ location }) => {
