@@ -11,10 +11,6 @@ const PhoneEmailMap = {
 const StepPhoneEmail = ({ onNext }) => {
     const [type, setType] = useState('phone');
     const Component = PhoneEmailMap[type];
-    
-    function onClick() {
-        // setStep(type + 1)
-    }
 
     return (
         <>
