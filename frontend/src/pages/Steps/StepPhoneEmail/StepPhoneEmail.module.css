@@ -4,12 +4,11 @@
     justify-content: center;
     margin-top: 6rem;
 }
-
 .buttonWrap {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 .tabButton {
@@ -23,9 +22,22 @@
 }
 
 .tabButton:last-child {
-    margin-left: 5px;
+    margin-left: 20px;
 }
 
 .active {
     background: #0077ff;
+}
+
+.actionButtonWrap {
+    margin-top: 40px;
+}
+
+.bottomParagraph {
+    color: #c4c5c5;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: center;
 }

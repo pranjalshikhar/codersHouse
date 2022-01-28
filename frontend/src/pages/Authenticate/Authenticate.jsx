@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import StepPhoneEmail from '../Steps/StepPhoneEmail/StepPhoneEmail'
 import StepOtp from '../Steps/StepOtp/StepOtp'
 
