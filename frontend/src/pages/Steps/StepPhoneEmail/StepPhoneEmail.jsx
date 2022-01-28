@@ -8,7 +8,7 @@ const PhoneEmailMap = {
     email: Email,
 }
 
-const StepPhoneEmail = ({ onClick }) => {
+const StepPhoneEmail = ({ onNext }) => {
     const [type, setType] = useState('phone');
     const Component = PhoneEmailMap[type];
     
@@ -28,7 +28,7 @@ const StepPhoneEmail = ({ onClick }) => {
                             <img src="/images/mail-white.png" alt="email" />
                         </button>
                     </div>
-                    <Component onClick={onClick} />
+                    <Component onNext={onNext} />
                 </div>
             </div>
         </>
