@@ -1,8 +1,8 @@
 <h1>👋 Coders House </h1>
-<img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/main/Sample%20Snapshot.jpg?token=GHSAT0AAAAAABQSP7ZD7DDZ4XYOG7OZ2OECYP2SUMQ" />
+<img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/main/Sample%20Snapshot.jpg?" />
 <br> <br>
 <h2> Framing </h2>
-<img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/main/White%20Board%20Framing.jpg?token=GHSAT0AAAAAABQSP7ZD6IARPLFEHX5DV75IYP3PIKQ" />
+<img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/main/White%20Board%20Framing.jpg" />
 <br> <br>
 <h2> Authentication and OTP </h2>
 <img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/main/Authentication%20and%20OTP.jpg" />
