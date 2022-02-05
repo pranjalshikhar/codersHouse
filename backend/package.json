@@ -4,17 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "node server.js",
     "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^15.0.0",
-    "express": "^4.17.2",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.0",
-    "twilio": "^3.73.1"
+    "mongoose": "^5.13.3",
+    "twilio": "^3.66.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
