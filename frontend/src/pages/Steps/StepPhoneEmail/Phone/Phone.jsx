@@ -10,7 +10,7 @@ const Phone = ({ onNext }) => {
 
     async function submit() {
         // server request
-        const {res} = await sendOtp();
+        const {res} = await sendOtp({phone: phoneNumber});
         console.log(res);
         // onNext();
     }
