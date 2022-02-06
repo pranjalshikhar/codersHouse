@@ -5,13 +5,14 @@ import TextInput from "../../../../components/shared/TextInput/TextInput";
 import styles from '../StepPhoneEmail.module.css';
 import { sendOtp } from '../../../../http/index';
 
+
 const Phone = ({ onNext }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
 
     async function submit() {
         // server request
-        const {res} = await sendOtp({phone: phoneNumber});
-        console.log(res);
+        const { data } = await sendOtp({phone: phoneNumber});
+        console.log(data);
         // onNext();
     }
 
@@ -20,6 +21,7 @@ const Phone = ({ onNext }) => {
             <TextInput
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
+                // onChange = {handleChange}
             />
             <div>
                 <div className={styles.actionButtonWrap}>

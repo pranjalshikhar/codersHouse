@@ -6,8 +6,10 @@ const tokenService = require('../services/token-service');
 class AuthController {
     async sendOtp(req, res) {
         const { phone } = req.body;
+        // console.log(req);
         if (!phone) {
-            return res.status(400).json({ message: 'Phone field is required!' });
+            res.status(400).json({ message: 'Phone field is required!'});
+            return;
         }
 
         const otp = await otpService.generateOtp();
@@ -20,32 +22,32 @@ class AuthController {
         // send OTP
         try {
             // await otpService.sendBySms(phone, otp);
-            return res.json({
+            res.json({
                 hash: `${hash}.${expires}`,
                 phone,
                 otp,
             });
         } catch (err) {
             console.log(err);
-            return res.status(500).json({ message: 'message sending failed' });
+            res.status(500).json({ message: 'message sending failed' });
         }
     }
 
     async verifyOtp(req, res) {
         const { otp, hash, phone } = req.body;
         if (!otp || !hash || !phone) {
-            return res.status(400).json({ message: 'All fields are required!' });
+            res.status(400).json({ message: 'All fields are required!' });
         }
 
         const [hashedOtp, expires] = hash.split('.');
         if (Date.now() > +expires) {
-            return res.status(400).json({ message: 'OTP expired!' });
+            res.status(400).json({ message: 'OTP expired!' });
         }
 
         const data = `${phone}.${otp}.${expires}`;
         const isValid = otpService.verifyOtp(hashedOtp, data);
         if (!isValid) {
-            return res.status(400).json({ message: 'Invalid OTP' });
+            res.status(400).json({ message: 'Invalid OTP' });
         }
 
         let user;
@@ -56,7 +58,7 @@ class AuthController {
             }
         } catch (err) {
             console.log(err);
-            return res.status(500).json({ message: 'Db error' });
+            res.status(500).json({ message: 'Db error' });
         }
 
         const { accessToken, refreshToken } = tokenService.generateTokens({
@@ -65,7 +67,7 @@ class AuthController {
         });
 
         
-        return res.json({ accessToken });
+        res.json({ accessToken });
     }
 }
 
