@@ -34,4 +34,4 @@ const Phone = ({ onNext }) => {
     )
 }
 
-export default Phone
+export default Phone;
