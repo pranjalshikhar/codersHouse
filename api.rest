@@ -2,7 +2,7 @@ POST http://localhost:5500/api/send-otp HTTP/1.1
 Content-Type: application/json
 
 {
-    "phone": "+91xxxxxxxxxx"
+    "phone": "+915657565753"
 }
 
 ###
@@ -11,7 +11,7 @@ POST http://localhost:5500/api/verify-otp HTTP/1.1
 Content-Type: application/json
 
 {
-    "phone": "+91xxxxxxxxxx",
+    "phone": "+915657565753",
     "otp": 6963,
     "hash": "24de06510afb5b094bf9dc4c40dfd0dd1eeabf3e0ef56728ad84a605e520d888.197266808700720000"
 }
