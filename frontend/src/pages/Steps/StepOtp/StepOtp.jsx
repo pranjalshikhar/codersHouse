@@ -4,9 +4,8 @@ import TextInput from '../../../components/shared/TextInput/TextInput';
 import Button from '../../../components/shared/Button/Button';
 import styles from './StepOtp.module.css';
 import { verifyOtp } from '../../../http';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setAuth } from '../../../store/authSlice';
-import { useDispatch } from 'react-redux';
 
 const StepOtp = () => {
     const [otp, setOtp] = useState('');
