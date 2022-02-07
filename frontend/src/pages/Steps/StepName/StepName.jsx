@@ -1,20 +1,23 @@
-import React, { useState } from "react";
-import styles from './StepName.module.css';
-import Button from "../../../components/shared/Button/Button";
+import React, { useState } from 'react';
 import Card from '../../../components/shared/Card/Card';
+import Button from '../../../components/shared/Button/Button';
 import TextInput from '../../../components/shared/TextInput/TextInput';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { setName } from '../../../store/activateSlice';
+import styles from './StepName.module.css';
 
 const StepName = ({ onNext }) => {
-    const {name} = useSelector((state) => state.activate);
+    const { name } = useSelector((state) => state.activate);
+    
+    const [fullname, setFullname] = useState(name);
     const dispatch = useDispatch();
-    const [fullName, setFullName] = useState(name);
-    function submit() {
-        if(!fullName) return;
-        dispatch(setName(fullName));
+
+    function nextStep() {
+        if (!fullname) {
+            return;
+        }
+        dispatch(setName(fullname));
         onNext();
-            
     }
     return (
         <div className={styles.cardWrapper}>
@@ -23,14 +26,14 @@ const StepName = ({ onNext }) => {
                     icon="goggle-emoji"
                 >
                     <TextInput
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
+                        value={fullname}
+                        onChange={(e) => setFullname(e.target.value)}
                     />
                     <div className={styles.actionButtonWrap}>
-                        <Button onClick={submit} text="Next" />
+                        <Button onClick={nextStep} text="Next" />
                     </div>
                     <p className={styles.bottomParagraph}>
-                        People use real names at codershouse :)
+                        People use real names at codershouse.
                     </p>
                 </Card>
         </div>
