@@ -24,7 +24,7 @@ class TokenService {
             });
             return;
         } catch(err) {
-            console.log(Err.message)
+            console.log(err.message)
         }
     }
 
