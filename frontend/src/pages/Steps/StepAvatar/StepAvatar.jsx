@@ -27,7 +27,8 @@ const StepAvatar = ({ onNext }) => {
     }
 
 
-    async function nextStep() {
+    async function submit() {
+        if(!name || !avatar) return;
         setLoading(true)
         try {
             const { data } = await activate({ name, avatar });
@@ -66,7 +67,7 @@ const StepAvatar = ({ onNext }) => {
                     </label>
                 </div>
                 <div>
-                    <Button onClick={nextStep} text="Next" />
+                    <Button onClick={submit} text="Next" />
                 </div>
             </Card>
         </>
