@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Card from '../../../components/shared/Card/Card';
 import Button from '../../../components/shared/Button/Button';
-import TextInput from '../../../components/shared/TextInput/TextInput';
 import styles from "./StepAvatar.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { setAvatar } from '../../../store/activateSlice';
+import { activate } from '../../../http/index';
+import { setAuth } from '../../../store/authSlice';
 
 const StepAvatar = ({ onNext }) => {
-    const { name } = useSelector((state) => state.activate);
+    const { name, avatar } = useSelector((state) => state.activate);
     const [image, setImage] = useState('/images/avatar.png');
     const dispatch = useDispatch();
     
@@ -24,8 +25,17 @@ const StepAvatar = ({ onNext }) => {
     }
 
 
-    function nextStep() {
-        onNext();
+    async function nextStep() {
+        try {
+            const { data } = await activate({ name, avatar });
+            console.log(data);
+            if(data.auth) {
+                dispatch(setAuth(data));
+            }
+        } catch(err) {
+            console.log(err);
+        }
+        // onNext();
     }
     return (
         <>
