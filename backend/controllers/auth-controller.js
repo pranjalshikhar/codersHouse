@@ -83,6 +83,61 @@ class AuthController {
         const userDto = new UserDto(user);
         res.json({ user: userDto, auth: true });
     }
+
+    async refresh(req, res) {
+        // get refresh token from cookie
+        const { refreshToken: refreshTokenFromCookie } = req.cookies;
+
+        // check if token is valid
+        let userData;
+        try {
+            userData = await tokenService.verifyRefreshToken(refreshTokenFromCookie);
+        } catch(err) {
+            return res.status(401).json({ message: 'Inavalid Token!' });
+        }
+
+        // check if token is in database
+        try {
+            const token = await tokenService.findRefreshToken(userData._id, refreshTokenFromCookie);
+            if(!token) {
+                return res.status(401).json({ message: 'Token not matched!' });
+            }
+        } catch(err) {
+            return res.status(500).json({ message: 'Internal Error!' });
+        }
+
+        // check if valid user
+        const user = await userService.findUser({_id: userData._id});
+        if(!user) {
+            return res.status(404).json({ message: 'Invalid User' });
+        }
+
+        // if everything is fine, then generate new token
+        const { refreshToken, accessToken } = tokenService.generateTokens({_id: userData._id });
+
+        // update refresh token
+        try {
+            await tokenService.updateRefreshToken(userData.userId, refreshToken);
+        } catch(err) {
+            return res.status(500).json({ message: 'Internal Error!' });
+        }
+
+        // insert token in cookie
+        res.cookie('refreshToken', refreshToken, {
+            maxAge: 1000 * 60 * 60 * 24 * 30,
+            httpOnly: true,
+        });
+
+        res.cookie('accessToken', accessToken, {
+            maxAge: 1000 * 60 * 60 * 24 * 30,
+            httpOnly: true,
+        });
+
+        // send response to the user
+        const userDto = new UserDto(user);
+        res.json({ user: userDto, auth: true });
+
+    }
 }
 
 module.exports = new AuthController();
