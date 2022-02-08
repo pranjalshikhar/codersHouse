@@ -8,7 +8,7 @@ class ActivateControleer {
         // Activation Logic
         const { name, avatar } = req.body;
         if(!name || !avatar) {
-            res.status(400).json({ message: 'Name is required' });
+            res.status(400).json({ message: 'All fields are required' });
             return;
         }
 
