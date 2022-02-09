@@ -32,20 +32,26 @@ class TokenService {
         return jwt.verify(token, accessTokenSecret);
     }
 
-    async verifyRefreshToken(token) {
-        return jwt.verify(token, refreshTokenSecret);
+    async verifyRefreshToken(refreshToken) {
+        return jwt.verify(refreshToken, refreshTokenSecret);
     }
 
-    async findRefreshToken(userId, token) {
-        return await refreshModel.findOne({userId: userId, token: token});
+    async findRefreshToken(userId, refreshToken) {
+        return await refreshModel.findOne({
+            userId: userId,
+            token: refreshToken,
+        });
     }
 
-    async updateRefreshToken(userId, token) {
-        return await refreshModel.updateOne({userId: userId}, {token: token});
+    async updateRefreshToken(userId, refreshToken) {
+        return await refreshModel.updateOne(
+            { userId: userId },
+            { token: refreshToken }
+        );
     }
 
-    async deleteRefreshToken(token) {
-        return await refreshModel.deleteOne({token: token});
+    async removeToken(refreshToken) {
+        return await refreshModel.deleteOne({ token: refreshToken });
     }
 
 }
