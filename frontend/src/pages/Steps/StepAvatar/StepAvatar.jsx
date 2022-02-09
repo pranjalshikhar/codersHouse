@@ -7,12 +7,14 @@ import { setAvatar } from '../../../store/activateSlice';
 import { activate } from '../../../http/index';
 import { setAuth } from '../../../store/authSlice';
 import Loader from '../../../components/shared/Loader/Loader';
+import { useEffect } from 'react';
 
 const StepAvatar = ({ onNext }) => {
     const { name, avatar } = useSelector((state) => state.activate);
     const [image, setImage] = useState('/images/avatar.png');
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
+    const [mounted, setMounted] = useState(false);
     
     function captureImage(e) {
         const file = e.target.files[0];
@@ -34,7 +36,10 @@ const StepAvatar = ({ onNext }) => {
             const { data } = await activate({ name, avatar });
             console.log(data);
             if(data.auth) {
-                dispatch(setAuth(data));
+                // check
+                if(!mounted) {
+                    dispatch(setAuth(data));
+                }
             }
         } catch(err) {
             console.log(err);
@@ -42,6 +47,12 @@ const StepAvatar = ({ onNext }) => {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        return () => {
+            setMounted(true);
+        }
+    }, []);
 
     if(loading) return <Loader message={'Activation in progress...'}/>
     return (
