@@ -65,3 +65,10 @@
 .startRoomButton:hover {
     background: #0f6632;
 }
+
+.roomList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}

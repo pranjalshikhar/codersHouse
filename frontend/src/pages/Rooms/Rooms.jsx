@@ -1,5 +1,77 @@
 import React from "react";
+import RoomCard from "../../components/RoomCard/RoomCard";
 import styles from './Rooms.module.css';
+
+const rooms = [
+    {
+        id: 1,
+        topic: 'Which Framework is best for Frontend?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+        ],
+        totalPeople: 40
+    },
+    {
+        id: 2,
+        topic: 'Which Framework is best for Frontend?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+        ],
+        totalPeople: 40
+    },
+    {
+        id: 3,
+        topic: 'Which Framework is best for Frontend?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+        ],
+        totalPeople: 40
+    },
+    {
+        id: 4,
+        topic: 'Which Framework is best for Frontend?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png'
+            },
+        ],
+        totalPeople: 40
+    },
+]
 
 const Rooms = () => {
     return (
@@ -19,6 +91,14 @@ const Rooms = () => {
                             <span>Start a room</span>
                         </button>
                     </div>
+                </div>
+
+                <div className={styles.roomList}>
+                    {
+                        rooms.map((room) => (
+                            <RoomCard key={room.id} room={room} />
+                        ))
+                    }
                 </div>
             </div>
         </>
