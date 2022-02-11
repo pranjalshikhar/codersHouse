@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styles from './AddRoomModel.module.css';
 import TextInput from '../shared/TextInput/TextInput';
 import { createRoom as create } from "../../http";
+import { useHistory } from 'react-router-dom';
 
 const AddRoomModel = ({ onClose }) => {
+    const history = useHistory();
     const [roomType, setRoomType] = useState('open');
     const [topic, setTopic] = useState('');
 
@@ -12,6 +14,7 @@ const AddRoomModel = ({ onClose }) => {
         try {
             if(!topic) return;
             const { data } = await create({topic, roomType});
+            history.push(`/room/${data.id}`);
             console.log(data);
         } catch(err) {
             console.log(err.message);
