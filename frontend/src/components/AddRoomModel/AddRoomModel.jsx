@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import styles from './AddRoomModel.module.css';
 import TextInput from '../shared/TextInput/TextInput';
+import { createRoom as create } from "../../http";
 
 const AddRoomModel = ({ onClose }) => {
     const [roomType, setRoomType] = useState('open');
+    const [topic, setTopic] = useState('');
+
+    async function createRoom() {
+        // server call
+        try {
+            if(!topic) return;
+            const { data } = await create({topic, roomType});
+            console.log(data);
+        } catch(err) {
+            console.log(err.message);
+        }
+    }
 
     return (
         <div className={styles.modelMask}>
@@ -14,7 +27,7 @@ const AddRoomModel = ({ onClose }) => {
                 
                 <div className={styles.modelHeader}>
                     <h3>Enter the topic to be disscussed</h3>
-                    <TextInput fullwidth="true" />
+                    <TextInput fullwidth="true"  value={topic} onChange={(e) => setTopic(e.target.value)} />
                     <h2>Room Type</h2>
                     <div className={styles.roomType}>
                         <div onClick={() => setRoomType('open')} className={`${styles.typeBox} ${roomType === 'open' ? styles.active : ''}`}>
@@ -34,7 +47,7 @@ const AddRoomModel = ({ onClose }) => {
 
                 <div className={styles.modelFooter}>
                     <h2>Start a room, open to everyone</h2>
-                    <button  className={styles.footerButton}>
+                    <button onClick={createRoom} className={styles.footerButton}>
                         <img src="/images/celebration.png" alt="Let's Go" />
                         <span>Let's Go</span>
                     </button>
