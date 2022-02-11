@@ -1,0 +1,96 @@
+.modelMask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modelBody {
+    width: 50%;
+    max-width: 500px;
+    background: #1d1d1d;
+    border-radius: 20px;
+    position: relative;
+}
+
+.modelHeader {
+    padding: 30px;
+    border-bottom: 2px solid #262626;
+}
+
+.roomType {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.typeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.typeBox.active {
+    background: #262626;
+}
+
+.modelHeader h3 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modelHeader h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.modelFooter {
+    padding: 30px;
+    text-align: center;
+}
+
+.modelFooter h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.footerButton {
+    background:  #20BD5F;
+    align-items: center;
+    display: flex;
+    padding: 7px 20px;
+    border-radius: 20px;
+    width: 200px;
+    color: #fff;
+    transition: all .3s ease-in-out;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.footerButton span {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.footerButton:hover {
+    background: #0f6632;
+}
+
+.closeButton {
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0);
+}

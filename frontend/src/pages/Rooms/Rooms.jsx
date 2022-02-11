@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import AddRoomModel from "../../components/AddRoomModel/AddRoomModel";
 import RoomCard from "../../components/RoomCard/RoomCard";
 import styles from './Rooms.module.css';
 
@@ -74,6 +75,10 @@ const rooms = [
 ]
 
 const Rooms = () => {
+    const [showModel, setShowModel] = useState(false);
+    function openModel() {
+        setShowModel(true);
+    }
     return (
         <>
             <div className="container">
@@ -86,7 +91,7 @@ const Rooms = () => {
                         </div>
                     </div>
                     <div className={styles.right}>
-                        <button className={styles.startRoomButton}>
+                        <button onClick={openModel} className={styles.startRoomButton}>
                             <img src="/images/add-room-icon.png" alt="Start a Room"/>
                             <span>Start a room</span>
                         </button>
@@ -101,6 +106,7 @@ const Rooms = () => {
                     }
                 </div>
             </div>
+            {showModel && <AddRoomModel onClose={() => setShowModel(false)} />}
         </>
     )
 }
