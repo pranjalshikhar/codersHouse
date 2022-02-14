@@ -6,6 +6,7 @@ import styles from '../StepPhoneEmail.module.css';
 import { sendOtp } from '../../../../http/index';
 import { useDispatch } from "react-redux";
 import { setOtp } from "../../../../store/authSlice";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Phone = ({ onNext }) => {
@@ -13,7 +14,12 @@ const Phone = ({ onNext }) => {
     const dispatch = useDispatch();
 
     async function submit() {
-        if(!phoneNumber) return;
+        if(!phoneNumber) {
+            // alert("Phone is required");
+            <Toaster />
+            toast.error("Phone field is required!")
+        }
+            
         // server request
         const { data } = await sendOtp({phone: phoneNumber});
         console.log(data);
@@ -26,11 +32,11 @@ const Phone = ({ onNext }) => {
             <TextInput
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                // onChange = {handleChange}
             />
             <div>
                 <div className={styles.actionButtonWrap}>
                     <Button text="Next" onClick={submit} />
+                    {!phoneNumber && <Toaster/>}
                 </div>
                 <p className={styles.bottomParagraph}>
                     By entering your number, you're agreeing to our Terms of

@@ -6,13 +6,16 @@ import styles from './StepOtp.module.css';
 import { verifyOtp } from '../../../http';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAuth } from '../../../store/authSlice';
+import toast, { Toaster } from 'react-hot-toast';
 
 const StepOtp = () => {
     const [otp, setOtp] = useState('');
     const dispatch = useDispatch();
     const { phone, hash } = useSelector((state) => state.auth.otp);
     async function submit() {
-        if (!otp || !phone || !hash) return;
+        if (!otp || !phone || !hash) {
+            toast.error("OTP is required!");
+        };
         try {
             const { data } = await verifyOtp({ otp, phone, hash });
             dispatch(setAuth(data));
@@ -33,6 +36,7 @@ const StepOtp = () => {
                     />
                     <div className={styles.actionButtonWrap}>
                         <Button onClick={submit} text="Next" />
+                        {!otp && <Toaster />}
                     </div>
                     <p className={styles.bottomParagraph}>
                         By entering your number, you're agreeing to our Terms of

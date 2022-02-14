@@ -8,6 +8,8 @@ import { activate } from '../../../http/index';
 import { setAuth } from '../../../store/authSlice';
 import Loader from '../../../components/shared/Loader/Loader';
 import { useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const StepAvatar = ({ onNext }) => {
     const { name, avatar } = useSelector((state) => state.activate);
@@ -30,7 +32,10 @@ const StepAvatar = ({ onNext }) => {
 
 
     async function submit() {
-        if(!name || !avatar) return;
+        if(!name || !avatar) {
+            toast.error("Please select an avatar!");
+            return;
+        };
         setLoading(true)
         try {
             const { data } = await activate({ name, avatar });
@@ -79,6 +84,7 @@ const StepAvatar = ({ onNext }) => {
                 </div>
                 <div>
                     <Button onClick={submit} text="Next" />
+                    {!avatar && <Toaster/>}
                 </div>
             </Card>
         </>

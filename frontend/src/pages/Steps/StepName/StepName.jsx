@@ -5,15 +5,17 @@ import TextInput from '../../../components/shared/TextInput/TextInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { setName } from '../../../store/activateSlice';
 import styles from './StepName.module.css';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const StepName = ({ onNext }) => {
     const { name } = useSelector((state) => state.activate);
-    
     const [fullname, setFullname] = useState(name);
     const dispatch = useDispatch();
 
     function nextStep() {
         if (!fullname) {
+            toast.error("Name is required!");
             return;
         }
         dispatch(setName(fullname));
@@ -31,6 +33,7 @@ const StepName = ({ onNext }) => {
                     />
                     <div className={styles.actionButtonWrap}>
                         <Button onClick={nextStep} text="Next" />
+                        {!fullname && <Toaster />}
                     </div>
                     <p className={styles.bottomParagraph}>
                         People use real names at codershouse.
