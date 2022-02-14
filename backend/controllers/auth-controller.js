@@ -30,7 +30,7 @@ class AuthController {
             });
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: 'message sending failed' });
+            res.status(500).json({ message: 'Message sending failed' });
         }
     }
 
