@@ -5,6 +5,13 @@ const DbConnect = require('./database');
 const router = require('./routes');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
+    cors: {
+        origin: ['http://localhost:3000'],
+        method: ['GET', 'POST'],
+    }
+});
 
 app.use(cookieParser());
 const corsOption = {
@@ -23,4 +30,9 @@ app.get('/', (req, res) => {
     return res.send('Hello from express Js');
 });
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+// sockets
+io.on('connection', (socket) => {
+    console.log('Socket Connection', socket.id);
+});
+
+server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
