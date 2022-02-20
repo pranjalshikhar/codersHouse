@@ -82,6 +82,29 @@ io.on('connection', (socket) => {
         })
     })
 
+    // Handle Mute - Unmute
+    socket.on(ACTIONS.MUTE, ({ roomId, userId }) => {
+        console.log('mute on server', userId);
+        const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
+        clients.forEach((clientId) => {
+            io.to(clientId).emit(ACTIONS.MUTE, {
+                peerId: socket.id,
+                userId,
+            });
+        });
+    });
+
+    socket.on(ACTIONS.UNMUTE, ({ roomId, userId }) => {
+        console.log('unmute on server', userId);
+        const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
+        clients.forEach((clientId) => {
+            io.to(clientId).emit(ACTIONS.UNMUTE, {
+                peerId: socket.id,
+                userId,
+            });
+        });
+    });
+
     // Leaving the Room
     const leaveRoom = ({roomId}) => {
         const {rooms} = socket;
