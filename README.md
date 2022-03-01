@@ -1,5 +1,5 @@
 <h1>👋 Coders House </h1>
-<img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/main/Sample%20Snapshot.jpg?" />
+<img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/ui-change/Sample%20Snapshot.jpg" />
 <br> <br>
 <h2> Framing </h2>
 <img src="https://raw.githubusercontent.com/pranjalshikhar/codersHouse/main/White%20Board%20Framing.jpg" />
