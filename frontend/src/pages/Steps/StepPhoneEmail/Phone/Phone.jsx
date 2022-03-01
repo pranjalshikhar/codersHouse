@@ -7,6 +7,7 @@ import { sendOtp } from '../../../../http/index';
 import { useDispatch } from "react-redux";
 import { setOtp } from "../../../../store/authSlice";
 import toast, { Toaster } from 'react-hot-toast';
+import inputStyle from "./Phone.module.css"
 
 
 const Phone = ({ onNext }) => {
@@ -29,10 +30,13 @@ const Phone = ({ onNext }) => {
 
     return (
         <Card title="Enter you Phone Number" icon="phone">
-            <TextInput
+            {/* <TextInput
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-            />
+            /> */}
+            <input className={styles.partitioned} type="text" maxLength="10" value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}/>
+
             <div>
                 <div className={styles.actionButtonWrap}>
                     <Button text="Next" onClick={submit} />

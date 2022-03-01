@@ -3,6 +3,7 @@
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
+    background: rgba(125, 124, 241, 0.3);
 }
 
 .speakers {

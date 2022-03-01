@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 .input {
-    background: #323232;
+    background: linear-gradient(rgba(125, 124, 241, 0.43), rgba(0, 119, 255, 0.28));
     border: none;
     padding: 10px 20px;
     width: 250px;
@@ -10,4 +10,12 @@
     border-radius: 10px;
     outline: none;
     font-family: 'Nunito', sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
