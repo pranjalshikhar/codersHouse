@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+
 .cardWrapper {
     display: flex;
     align-items: center;
@@ -40,4 +43,18 @@
     margin-top: 20px;
     font-size: 12px;
     text-align: center;
+}
+
+
+.partitioned {
+    background: rgba(51, 50, 234, 0.4);
+    border: none;
+    padding: 10px 20px;
+    width: 150px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 10px;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    align-items: center;
 }

@@ -41,7 +41,11 @@ button {
 }
 
 body {
-    background: #121212;
+    /* background: #121212; */
+    background: url('../public//images//bg.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
     font-family: 'Nunito', sans-serif;
     color: #fff;
 }

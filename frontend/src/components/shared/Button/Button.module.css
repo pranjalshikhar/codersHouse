@@ -18,6 +18,7 @@
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    filter: drop-shadow(0px 7px 80px rgba(0, 119, 255, 0.88));
 }
 .button:hover {
     background: #014a9c;

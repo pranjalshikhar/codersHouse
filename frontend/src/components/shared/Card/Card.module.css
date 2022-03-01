@@ -2,7 +2,9 @@
     width: 500px;
     /* max-width: 90%; */
     min-height: 300px;
-    background: #1d1d1d;
+    /* background: #1d1d1d; */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
     padding: 30px;
     border-radius: 20px;
     display: flex;

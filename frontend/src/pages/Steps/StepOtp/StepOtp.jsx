@@ -23,6 +23,7 @@ const StepOtp = () => {
             console.log(err);
         }
     }
+
     return (
         <>
             <div className={styles.cardWrapper}>
@@ -30,10 +31,13 @@ const StepOtp = () => {
                     title="Enter the code we just texted you"
                     icon="lock-emoji"
                 >
-                    <TextInput
+                    {/* <TextInput
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                    />
+                    /> */}
+                    <input className={styles.partitioned} type="text" maxLength="4" value={otp}
+                        onChange={(e) => setOtp(e.target.value)}/>
+
                     <div className={styles.actionButtonWrap}>
                         <Button onClick={submit} text="Next" />
                         {!otp && <Toaster />}

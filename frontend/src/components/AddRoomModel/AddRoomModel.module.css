@@ -13,7 +13,8 @@
 .modelBody {
     width: 50%;
     max-width: 500px;
-    background: #1d1d1d;
+    background: radial-gradient(51.42% 51.42% at 51.3% 48.58%, #0D0F14 0%, #090E1C 100%);
+    border: 2px solid #FFFFFF;
     border-radius: 20px;
     position: relative;
 }
@@ -40,7 +41,9 @@
 }
 
 .typeBox.active {
-    background: #262626;
+    background: #ebeef5;
+    color: #090E1C;
+    font-weight: bold;
 }
 
 .modelHeader h3 {
