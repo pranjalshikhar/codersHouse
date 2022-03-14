@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { useWebRTC } from '../../hooks/useWebRTC';
 import { useParams, useHistory } from 'react-router-dom';
 import { getRoom } from '../../http';
-
 import styles from './Room.module.css';
 
 const Room = () => {
@@ -102,7 +101,7 @@ const Room = () => {
                                                 alt="mic"
                                             />
                                         )}
-                                    </button>
+                                    </button>    
                                 </div>
                                 <h4>{client.name}</h4>
                             </div>
