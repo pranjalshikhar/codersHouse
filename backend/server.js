@@ -94,11 +94,11 @@ io.on('connection', (socket) => {
         });
     });
 
-    socket.on(ACTIONS.UNMUTE, ({ roomId, userId }) => {
+    socket.on(ACTIONS.UN_MUTE, ({ roomId, userId }) => {
         console.log('unmute on server', userId);
         const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
         clients.forEach((clientId) => {
-            io.to(clientId).emit(ACTIONS.UNMUTE, {
+            io.to(clientId).emit(ACTIONS.UN_MUTE, {
                 peerId: socket.id,
                 userId,
             });

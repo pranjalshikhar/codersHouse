@@ -92,7 +92,7 @@ const Room = () => {
                                             <img
                                                 className={styles.mic}
                                                 src="/images/mic-mute.png"
-                                                alt="mic"
+                                                alt="mic-mute"
                                             />
                                         ) : (
                                             <img

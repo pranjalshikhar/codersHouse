@@ -234,7 +234,7 @@ export const useWebRTC = (roomId, user) => {
             setMute(true, userId);
         });
 
-        socket.current.on(ACTIONS.UNMUTE, ({ peerId, userId }) => {
+        socket.current.on(ACTIONS.UN_MUTE, ({ peerId, userId }) => {
             console.log('unmuting', userId);
             setMute(false, userId);
         });
@@ -270,6 +270,7 @@ export const useWebRTC = (roomId, user) => {
         clientsRef.current = clients;
     }, [clients]);
 
+    // Handling Mute
     const handleMute = (isMute, userId) => {
         let settled = false;
 
@@ -283,7 +284,7 @@ export const useWebRTC = (roomId, user) => {
                             userId: user.id,
                         });
                     } else {
-                        socket.current.emit(ACTIONS.UNMUTE, {
+                        socket.current.emit(ACTIONS.UN_MUTE, {
                             roomId,
                             userId: user.id,
                         });
