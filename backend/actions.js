@@ -8,7 +8,7 @@ const ACTIONS = {
     SESSION_DESCRIPTION: 'session-description',
     REMOVE_PEER: 'remove-peer',
     MUTE: 'mute',
-    UN_MUTE: 'un-mute',
+    UNMUTE: 'un-mute',
 }
 
 module.exports = ACTIONS;
