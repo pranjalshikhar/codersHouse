@@ -29,7 +29,7 @@ const Room = () => {
     }, [roomId]);
 
     useEffect(() => {
-        handleMute(isMuted, user.id);
+        handleMute(isMuted, user._id);
     }, [isMuted]);
 
     const handManualLeave = () => {
@@ -37,7 +37,7 @@ const Room = () => {
     };
 
     const handleMuteClick = (clientId) => {
-        if (clientId !== user.id) return;
+        if (clientId !== user._id) return;
         setMuted((prev) => !prev);
     };
 
