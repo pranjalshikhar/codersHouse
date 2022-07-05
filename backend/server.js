@@ -24,14 +24,14 @@ const corsOption = {
 app.use(cors(corsOption));
 app.use('/storage', express.static('storage'));
 
-const PORT = process.env.PORT || 5500;
+// const PORT = process.env.PORT || 5500;
 DbConnect();
 app.use(express.json({ limit: '8mb' }));
 app.use(router);
 
-app.get('/', (req, res) => {
-    return res.json('Server Start');
-});
+app.get("/",(req,res)=>{
+    res.json("server start")
+})
 
 // sockets
 const socketUserMapping = {
@@ -135,4 +135,7 @@ io.on('connection', (socket) => {
     socket.on('disconnecting', leaveRoom);
 });
 
-server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+// server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });

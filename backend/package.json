@@ -2,27 +2,29 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "engines": {
+    "node": "14.16.0"
+  },
   "scripts": {
-    "dev": "node server.js",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jimp": "^0.16.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.14",
-    "socket.io": "^4.4.1",
+    "mongoose": "^5.13.3",
+    "serve": "^13.0.2",
+    "socket.io": "^4.4.0",
     "twilio": "^3.66.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
-    "prettier": "2.5.1"
+    "nodemon": "^2.0.18",
+    "prettier": "2.7.1"
   }
 }
