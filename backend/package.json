@@ -2,10 +2,8 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "14.16.0"
-  },
   "scripts": {
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "keywords": [],
