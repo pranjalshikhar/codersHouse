@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { ACTIONS } from '../actions';
 import socketInit from '../Socket/index';
@@ -54,7 +56,7 @@ export const useWebRTC = (roomId, user) => {
             socket.current.on(ACTIONS.MUTE, ({ peerId, userId }) => {
                 handleSetMute(true, userId);
             });
-            socket.current.on(ACTIONS.UNMUTE, ({ peerId, userId }) => {
+            socket.current.on(ACTIONS.UN_MUTE, ({ peerId, userId }) => {
                 handleSetMute(false, userId);
             });
             socket.current.emit(ACTIONS.JOIN, {
@@ -222,7 +224,7 @@ export const useWebRTC = (roomId, user) => {
             socket.current.off(ACTIONS.ICE_CANDIDATE);
             socket.current.off(ACTIONS.SESSION_DESCRIPTION);
             socket.current.off(ACTIONS.MUTE);
-            socket.current.off(ACTIONS.UNMUTE);
+            socket.current.off(ACTIONS.UN_MUTE);
         };
     }, []);
 
@@ -243,7 +245,7 @@ export const useWebRTC = (roomId, user) => {
                             userId: user.id,
                         });
                     } else {
-                        socket.current.emit(ACTIONS.UNMUTE, {
+                        socket.current.emit(ACTIONS.UN_MUTE, {
                             roomId,
                             userId: user.id,
                         });

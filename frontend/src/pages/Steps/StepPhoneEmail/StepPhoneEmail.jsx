@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Phone from "./Phone/Phone";
 import Email from "./Email/Email";

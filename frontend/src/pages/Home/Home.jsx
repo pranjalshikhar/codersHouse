@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import styles from './Home.module.css'
 import { Link, useHistory } from 'react-router-dom'
