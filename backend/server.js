@@ -29,9 +29,9 @@ DbConnect();
 app.use(express.json({ limit: '8mb' }));
 app.use(router);
 
-app.get('/', (req, res) => {
-    return res.send('Hello from express Js');
-});
+app.get("/",(req,res)=>{
+    res.json("server start")
+})
 
 // sockets
 const socketUserMapping = {
